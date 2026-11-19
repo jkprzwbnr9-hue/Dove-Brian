@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <style>
 :root{--y:#ffc21a;--n:#161d36;--o:#f06a1d;--g:#21c55d}
-*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#0f1424;font-family:'Trebuchet MS',system-ui,sans-serif;color:#fff;touch-action:none;user-select:none;-webkit-user-select:none}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#0f1424;font-family:'Trebuchet MS',system-ui,sans-serif;color:#fff;touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .f,.btn,.chip,h1,h2{font-family:'Lilita One',Impact,sans-serif;font-weight:400}
 #gl{position:fixed;inset:0;width:100%;height:100%}
 .scr{position:fixed;inset:0;display:none;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}.scr.on{display:flex}
@@ -180,6 +180,7 @@ const mmc=document.createElement('canvas');mmc.width=120;mmc.height=56;(()=>{con
 const mx=$('mm').getContext('2d');
 /* ===== STATO ===== */
 let st='load',PL,BR=mk('BRIAN'),pl={x:0,z:0,r:0},br={x:0,z:0},spot=-1,tt=0,ft=0,best=0,near=false,zone='',fs=0;gS.add(BR);
+let lt0=0;document.addEventListener('touchend',e=>{const n=Date.now();if(n-lt0<400&&!(e.target.closest&&e.target.closest('button,input,label')))e.preventDefault();lt0=n},{passive:false});
 ['gesturestart','gesturechange','gestureend'].forEach(e=>document.addEventListener(e,ev=>ev.preventDefault()));
 const K={};let jx=0,jz=0,jr=false;
 addEventListener('keydown',e=>{K[e.code]=1;if(e.code=='Escape')st=='play'?pause():st=='pause'&&resume()});addEventListener('keyup',e=>K[e.code]=0);
